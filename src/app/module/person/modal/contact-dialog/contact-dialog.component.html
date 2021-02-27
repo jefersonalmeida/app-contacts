@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{form.get('id')?.value ? 'Editar' : 'Adicionar'}} contato</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+        <mat-form-field appearance="standard" fxFlex>
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of types" [value]="type.value">{{type.label}}</mat-option>
+          </mat-select>
+          <mat-error>
+            <app-form-errors [control]="form.controls.type"></app-form-errors>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard" fxFlex>
+          <mat-label>Valor</mat-label>
+          <input formControlName="value" matInput placeholder="Valor">
+          <mat-error>
+            <app-form-errors [control]="form.controls.value"></app-form-errors>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div fxLayoutAlign="end" mat-dialog-actions>
+  <button [mat-dialog-close]="null" mat-flat-button>FECHAR</button>
+  <button [disabled]="form.invalid" [mat-dialog-close]="form" color="primary" mat-flat-button>SALVAR</button>
+</div>
