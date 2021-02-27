@@ -16,14 +16,15 @@ a utilização do Angular, TypeScript, Angular CLI e SCSS.
 ### API - Links
 
 - [DEMO - Frontend](https://bravi.com.br)
-- [Repositório - Backend - Node](https://bravi.com.br)
-- [Repositório - Backend - PHP](https://bravi.com.br)
+- [Repositório - Backend - Node](https://github.com/jefersonalmeida/api-node-contacts)
+- Repositório - Backend - PHP - *Em desenvolvimento*
 
 ### Tecnologia
 - Typescript
 - [Angular CLI](https://github.com/angular/angular-cli) versão 11.1.2.
-- SCSS  
+- SCSS
 - GitHub
+- Netlify
 
 ## Instalação
 
