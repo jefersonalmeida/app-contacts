@@ -1,4 +1,7 @@
+[![CI CD Status](https://github.com/jefersonalmeida/app-contacts/workflows/CI-CD/badge.svg)](https://github.com/jefersonalmeida/app-contacts)
+
 # BRAVI - Contatos - APP
+
 Projeto desenvolvido para a [BRAVI](https://bravi.com.br/)
 
 ## Author
