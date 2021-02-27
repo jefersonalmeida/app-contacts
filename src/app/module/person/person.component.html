@@ -1,0 +1,46 @@
+<div class="container" fxLayout fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div class="item" fxFlex="100%">
+    <section>
+      <div class="spacer" fxLayout fxLayoutAlign="space-between center">
+        <h2>{{title}}</h2>
+        <button (click)="openEntityDialog(null)" color="primary" mat-mini-fab>
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+
+    <mat-selection-list [multiple]="false">
+      <mat-list-option *ngFor="let item of persons;" [disableRipple]="true" [value]="item.id">
+        <div fxLayout fxLayoutAlign="space-between">
+          <div fxLayoutAlign="center center">
+            <!--<mat-icon matListAvatar>person</mat-icon>-->
+            <div matLine>{{item.name}}</div>
+          </div>
+          <div>
+            <button [matMenuTriggerFor]="menuAction" aria-label="Ações" mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuAction="matMenu">
+              <button (click)="toInfo(item)" mat-menu-item>
+                <mat-icon>remove_red_eye</mat-icon>
+                <span>Visualizar</span>
+              </button>
+              <button (click)="openEntityDialog(item)" mat-menu-item>
+                <mat-icon>launch</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button (click)="openEntityDeleteDialog(item)" mat-menu-item>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Deletar</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>
+
+
+
