@@ -1,0 +1,42 @@
+<div class="container" fxLayout fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div *ngIf="person" class="item" fxFlex="100%">
+    <section>
+      <div class="spacer" fxLayout fxLayoutAlign="space-between center">
+        <button (click)="toIndex()" color="primary" mat-mini-fab>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h3>{{person?.name}}</h3>
+        <button (click)="openEntityDialog(null)" color="primary" mat-mini-fab>
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </section>
+    <mat-divider></mat-divider>
+
+    <mat-selection-list *ngIf="contacts?.length" [multiple]="false">
+      <mat-list-option *ngFor="let item of contacts;" [disableRipple]="true" [value]="item.id">
+        <div fxLayout fxLayoutAlign="space-between">
+          <div fxLayoutAlign="center center" fxLayoutGap="10px">
+            <mat-icon>{{getIcon(item?.type)}}</mat-icon>
+            <div matLine> {{item?.value}}</div>
+          </div>
+          <div>
+            <button [matMenuTriggerFor]="menuAction" aria-label="Ações" mat-icon-button>
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuAction="matMenu">
+              <button (click)="openEntityDialog(item)" mat-menu-item>
+                <mat-icon>launch</mat-icon>
+                <span>Editar</span>
+              </button>
+              <button (click)="openEntityDeleteDialog(item)" mat-menu-item>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Deletar</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+</div>
