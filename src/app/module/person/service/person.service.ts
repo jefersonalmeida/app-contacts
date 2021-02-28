@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { environment } from '../../../../environments/environment';
 import { ResponseEntity } from '../../../shared/interface/response.interface';
+import { StorageService } from '../../../shared/service/storage.service';
 import { Person } from '../interface/person.interface';
 
-const API_URL = environment.endpoints.node;
+const API_URL = StorageService.getEndpoint();
 
 @Injectable({providedIn: 'root'})
 export class PersonService {

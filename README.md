@@ -20,14 +20,14 @@ a utilização do Angular, TypeScript, Angular CLI e SCSS.
 
 - [DEMO | Frontend](http://d3vkt9np6wc9rn.cloudfront.net/)
 - [Repositório | Backend | Node](https://github.com/jefersonalmeida/api-node-contacts)
-- Repositório | Backend | PHP | *Em desenvolvimento*
+- [Repositório | Backend | PHP](https://github.com/jefersonalmeida/api-php-contacts)
 
 ### Tecnologia
 - Typescript
 - [Angular CLI](https://github.com/angular/angular-cli) versão 11.1.2.
 - SCSS
 - GitHub
-- AWS
+- AWS - CloudFront | S3
 
 ## Instalação
 
