@@ -10,12 +10,22 @@ import { StorageService } from './shared/service/storage.service';
 })
 export class AppComponent {
   title = 'ng-contacts';
+  apiDefault = StorageService.getEndpoint() || environment.endpoints.node;
+
+  apis = [
+    {label: 'Node', value: environment.endpoints.node},
+    {label: 'PHP', value: environment.endpoints.php},
+  ];
 
   constructor(private readonly router: Router) {
-    StorageService.setEndpoint(environment.endpoints.node);
+    StorageService.setEndpoint(StorageService.getEndpoint() || environment.endpoints.node);
   }
 
   toHome(): void {
     this.router.navigate(['/persons']);
+  }
+
+  handleAPI(event: any): void {
+    StorageService.setEndpoint(event);
   }
 }

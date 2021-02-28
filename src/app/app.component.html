@@ -7,4 +7,13 @@
   />
   <span>CONTATOS</span>
 </div>
+
+<div class="container-switch" fxLayout="row" fxLayoutAlign="end">
+  <mat-form-field appearance="fill">
+    <mat-label>Selecione a API</mat-label>
+    <mat-select (ngModelChange)="handleAPI($event)" [(ngModel)]="apiDefault">
+      <mat-option *ngFor="let api of apis" [value]="api.value">{{api.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 <router-outlet></router-outlet>
