@@ -9,9 +9,12 @@
 </div>
 
 <div class="container-switch" fxLayout="row" fxLayoutAlign="end">
-  <mat-button-toggle-group (ngModelChange)="handleAPI($event)" [(ngModel)]="apiDefault" aria-label="API" name="api">
-    <mat-button-toggle *ngFor="let api of apis" [value]="api.value">{{api.label}}</mat-button-toggle>
-  </mat-button-toggle-group>
+  <p>
+    API:
+    <mat-button-toggle-group (ngModelChange)="handleAPI($event)" [(ngModel)]="apiDefault" aria-label="API" name="api">
+      <mat-button-toggle *ngFor="let api of apis" [value]="api.value">{{api.label}}</mat-button-toggle>
+    </mat-button-toggle-group>
+  </p>
 
   <!--<mat-form-field appearance="fill">
     <mat-label>Selecione a API</mat-label>
