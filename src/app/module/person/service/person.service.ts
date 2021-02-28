@@ -7,27 +7,25 @@ import { ResponseEntity } from '../../../shared/interface/response.interface';
 import { StorageService } from '../../../shared/service/storage.service';
 import { Person } from '../interface/person.interface';
 
-const API_URL = StorageService.getEndpoint();
-
 @Injectable({providedIn: 'root'})
 export class PersonService {
   constructor(private readonly http: HttpClient, private readonly snackBar: MatSnackBar) {
   }
 
   public index(): Observable<Person[]> {
-    return this.http.get<ResponseEntity<Person[]>>(`${API_URL}/persons`).pipe(
+    return this.http.get<ResponseEntity<Person[]>>(`${StorageService.getEndpoint()}/persons`).pipe(
       map(res => res.data),
     );
   }
 
   public find(id: string): Observable<Person> {
-    return this.http.get<ResponseEntity<Person>>(`${API_URL}/persons/${id}`).pipe(
+    return this.http.get<ResponseEntity<Person>>(`${StorageService.getEndpoint()}/persons/${id}`).pipe(
       map(res => res.data),
     );
   }
 
   public create(entity: Person): Observable<Person> {
-    return this.http.post<ResponseEntity<Person>>(`${API_URL}/persons`, entity).pipe(
+    return this.http.post<ResponseEntity<Person>>(`${StorageService.getEndpoint()}/persons`, entity).pipe(
       tap(_ => this.snackBar.open(`${entity.name} criado com sucesso`, undefined, {
         duration: 2000,
       })),
@@ -36,7 +34,7 @@ export class PersonService {
   }
 
   public update(entity: Person): Observable<Person> {
-    return this.http.put<ResponseEntity<Person>>(`${API_URL}/persons/${entity.id}`, entity).pipe(
+    return this.http.put<ResponseEntity<Person>>(`${StorageService.getEndpoint()}/persons/${entity.id}`, entity).pipe(
       tap(_ => this.snackBar.open(`${entity.name} atualizado com sucesso`, undefined, {
         duration: 2000,
       })),
@@ -45,7 +43,7 @@ export class PersonService {
   }
 
   public delete(entity: Person): Observable<void> {
-    return this.http.delete<void>(`${API_URL}/persons/${entity.id}`).pipe(
+    return this.http.delete<void>(`${StorageService.getEndpoint()}/persons/${entity.id}`).pipe(
       tap(_ => this.snackBar.open(`${entity.name} deletado com sucesso`, undefined, {
         duration: 2000,
       })),
